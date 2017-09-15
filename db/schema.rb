@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914234144) do
+ActiveRecord::Schema.define(version: 20170915152236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "etfs", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "symbol"
+    t.index ["symbol"], name: "index_etfs_on_symbol", using: :btree
+  end
+
+  create_table "holdings", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "weight"
+    t.integer  "share_held"
+    t.integer  "etf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["etf_id"], name: "index_holdings_on_etf_id", using: :btree
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "percent"
+    t.integer  "etf_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["etf_id"], name: "index_sectors_on_etf_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
