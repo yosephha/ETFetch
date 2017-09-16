@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import {fetchEtfs, fetchEtf } from './util/etf_util'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -15,4 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
+
+  window.fetchEtfs = fetchEtfs;
+  window.fetchEtf = fetchEtf;
 });

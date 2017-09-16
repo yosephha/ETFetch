@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from './home_index';
+import EtfDetail from './etf_detail';
 import { fetchEtf } from '../../actions/etf_action';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
   return ({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    sym: id,
+    etf: state.etf
   });
 }
 
@@ -18,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(EtfDetail);

@@ -12,6 +12,6 @@
 
 class Etf < ApplicationRecord
   validates :name, :description, :symbol, presence: true
-  has_many :sectors
+  has_many :sectors, foreign_key: :etf_id, class_name: :Sector
   has_many :holdings, foreign_key: :etf_id, class_name: :Holding
 end
