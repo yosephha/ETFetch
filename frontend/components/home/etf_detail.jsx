@@ -1,4 +1,7 @@
 import React from 'react';
+import BarChart from 'react-bar-chart';
+import Holdings from './holdings';
+import Sectors from './sectors';
 
 class EtfDetail extends React.Component {
   constructor(props){
@@ -12,35 +15,18 @@ class EtfDetail extends React.Component {
   render(){
     if(!this.props.etf.id) return null;
 
-    debugger
     const etf = this.props.etf;
-    const holdings = etf.holdings.map((el,i) => {
-	     return(
-         <tr key={i}>
-           <td>{el.name}</td>
-           <td>{el.weight}</td>
-           <td>{el.share_held}</td>
-         </tr>
-
-       );
-    });
+    const holdings = this.props.etf.holdings;
+    const sectors = this.props.etf.sectors;
 
     return(
       <div>
         <h1><span>{etf.symbol}:{' '}</span>{etf.name}</h1>
         <h4>{etf.description}</h4>
 
-        <h3>Top 10 Holdings</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th>NAME</th>
-                <th>WEIGHT</th>
-                <th>SHARES HELD</th>
-              </tr>
-              {holdings}
-            </tbody>
-          </table>
+        <Holdings holding={holdings}/>
+        <Sectors sectors={sectors}/>
+
       </div>
     );
   }
