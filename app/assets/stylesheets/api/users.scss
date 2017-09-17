@@ -1,3 +1,118 @@
-// Place all the styles related to the Api::Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body, header, nav, h1, h4, a,
+ul,h2, h3, li, button, i, section, img,
+div, form, input, textarea, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.authFormContainer {
+  position: relative;
+  top: 170px;
+  display: block;
+}
+
+.authForm{
+  background: white;
+  margin: 5px;
+  width: 60%;
+  margin: auto;
+  border: 1px solid #d2d2d2;
+}
+
+.redirect{
+  margin: auto;
+  text-align: center;
+  width: 360px;
+  padding: 20px 0;
+  background: #e2e2e2;
+  border-top: 1px solid #b3b0ad;
+  font-size: 14px;
+  color: #3D3D66;
+}
+
+.authFormInputs{
+  text-align: center;
+  background: #e2e2e2
+}
+
+.separator-text {
+  font-family: Helvetica;
+  font-size: 20px;
+}
+
+input[type=text], input[type=password], input[type=number]{
+  width: 80%;
+  padding: 11px 25px;
+  background: white;
+  margin: 10px;
+  border-radius: 3px;
+  border: 1px solid #dcd9d9;
+  text-align: -webkit-left;
+}
+
+input:focus {
+  border: 1px solid blue;
+
+}
+
+.formType{
+  padding-left: 12px;
+  padding-top: 12px;
+  font-size: 48px;
+  font-weight: 900;
+  font-family: sans-serif;
+}
+
+.loginDiv{
+  text-align: center;
+  padding: 10px;
+}
+
+.login{
+  background: #a1b3b2;
+  display: box;
+  width: 20%;
+  padding: 15px 34px;
+  border-radius: 11px;
+  margin-top: 21px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.demo-login {
+  background: #3b5998;
+  color: white;
+  display: box;
+  width: 80%;
+  padding: 9px 34px;
+  border-radius: 7px;
+  margin-top: 21px;
+  margin-bottom: 45px;
+}
+
+.errors{
+  color: red;
+  list-style: none;
+  font-family: monospace;
+  font-size: small;
+}
+
+.link-form{
+  color: blue;
+  font-size: large;
+}

@@ -1,3 +1,57 @@
-// Place all the styles related to the Api::Etfs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-info {
+    display: inline-block;
+    font-size: 20px;
+    margin: 1px 30px;
+}
+
+.user-info > span {
+  color: #545454;
+  font-weight: 800;
+  font-size: 27px;
+  font-family: cursive;
+}
+
+.header-button {
+    display: inline-block;
+    background: #9cab9c;
+    color: while;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.top-header {
+  width: 96%;
+  text-align: -webkit-right;
+  padding: 20px;
+}
+
+input#etf-input {
+  display: block;
+  margin: auto;
+  width: 54%;
+  padding: 16px;
+  margin-top: 6%;
+}
+
+input#etf-submit {
+    background: #9cab9c;
+    color: white;
+    padding: 16px;
+    border-radius: 9px;
+}
+
+.submit-container {
+    margin: auto;
+    text-align: -webkit-center;
+    padding: 20px;
+}
+
+.etf-container {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #cabfbf;
+  padding: 13px;
+  box-shadow: 0 17px 31px rgba(72, 68, 68, 0.85);
+  background: #eff7f3;
+}

@@ -1,3 +1,87 @@
-// Place all the styles related to the Api::Etf controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.etf-name{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.etf-name {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: -webkit-center;
+  font-family: inherit;
+  color: #4c4c4c;
+  margin-top: 25px;
+}
+
+h4.etf-description {
+  font-size: 22px;
+  padding: 35px;
+  font-family: sans-serif;
+}
+
+.holdings > h3 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #4c4c4c;
+  text-align: -webkit-center;
+  padding: 50px;
+}
+
+.sectors > h3 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #4c4c4c;
+  text-align: -webkit-center;
+  padding: 50px;
+}
+
+
+table.gridtable {
+  font-family: verdana,arial,sans-serif;
+  font-size: 14px;
+  color: #333333;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+.hodings-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sectors-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bar-chart {
+  width: 50%;
+}
+
+.piechart{
+  width: 26%;
+  margin-top: 10%;
+  margin-right: 16%;
+}
+
+span.color {
+  padding: 6px;
+  border-radius: 13%;
+  margin-right: 11px;
+}

@@ -36,14 +36,16 @@ class Home extends React.Component {
 
         <form onSubmit={this.handleSubmit} >
           <div>
-            <span>{'Search for ETF '}</span>
             <input type="text"
               value={this.state.username}
               onChange={this.update()}
-              placeholder="ETF name"
+              placeholder="Enter ETF Symbol"
               autoFocus={true}
+              id='etf-input'
             />
-            <input id="etf-submit" type='submit' value='Fetch' />
+          <div className='submit-container'>
+            <input id="etf-submit" type='submit' value='Search for ETF'/>
+          </div>
           </div>
         </form>
       </div>
