@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Route } from 'react-router-dom';
 
 const App = () => (
-  <div>
+  <div className='app-container'>
     <AuthRoute exact path="/login" component={FormContainer} />
     <AuthRoute exact path="/signup" component={FormContainer} />
     <ProtectedRoute exact path="/" component={Home} />

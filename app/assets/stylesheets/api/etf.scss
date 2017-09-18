@@ -1,7 +1,4 @@
-.etf-name{
-  font-size: 36px;
-  font-weight: bold;
-}
+
 
 .etf-name {
   font-size: 40px;
@@ -10,6 +7,10 @@
   font-family: inherit;
   color: #4c4c4c;
   margin-top: 25px;
+  border-bottom: 1px solid #bbb1b1;
+  width: 90%;
+  margin: auto;
+  padding: 25px;
 }
 
 h4.etf-description {
@@ -23,7 +24,10 @@ h4.etf-description {
   font-weight: bold;
   color: #4c4c4c;
   text-align: -webkit-center;
-  padding: 50px;
+  border-bottom: 1px solid #bbb1b1;
+  width: 37%;
+  margin: auto;
+  padding: 50px 0 40px 0;
 }
 
 .sectors > h3 {
@@ -31,7 +35,10 @@ h4.etf-description {
   font-weight: bold;
   color: #4c4c4c;
   text-align: -webkit-center;
-  padding: 50px;
+  border-bottom: 1px solid #bbb1b1;
+  width: 37%;
+  margin: auto;
+  padding: 50px 0 40px 0;
 }
 
 
@@ -63,11 +70,13 @@ table.gridtable td {
 .hodings-data {
   display: flex;
   justify-content: space-between;
+  margin-top: 25px;
 }
 
 .sectors-data {
   display: flex;
   justify-content: space-between;
+  margin-top: 25px;
 }
 
 .bar-chart {
