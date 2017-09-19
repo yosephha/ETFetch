@@ -10,12 +10,29 @@ class Api::EtfsController < ApplicationController
   end
 
   def show
-    @etf = Etf.where(symbol: params[:id]).first
+    sym = params[:id]
+    @etf = Etf.where(symbol: sym).first
     if @etf
       render :show
     else
+      scraped_data = EtfScraper.scrape('http://us.spdrs.com/en', sym)
 
-      EtfScraper.scrape('https://us.spdrs.com/en/etf/spdr-sp-500-etf-SPY')
+      etf = Etf.create(
+        name: scraped_data[:name],
+        description: scraped_data[:description],
+        symbol: sym
+      )
+
+      scraped_data[:holdings].each do |holding|
+        Holding.create(
+          name: holding[:name],
+          weight: holding[:weight],
+          share_held: holding[:shares],
+          etf_id: etf.id
+        )
+      end
+      @etf = Etf.where(symbol: sym).first
+      # debugger
       render :show
     end
   end

@@ -8,9 +8,10 @@
 
 Etf.destroy_all
 etf1 = Etf.create(
-  name: "S&P 500 Index",
+  name: "SPDR® S&P 500® ETF",
   symbol: "SPY",
-  description: "The S&P 500® Index is composed of five hundred (500) selected stocks, all of which are listed on national stock exchanges and spans over 25 separate industry groups."
+  description: "The SPDR® S&P 500® ETF Trust seeks to provide investment results that, before expenses, correspond generally to the price and yield\nperformance of the S&P 500® Index (the 'Index')
+  The S&P 500 Index is a diversifed large cap U.S. index that holds companies across all eleven GICS sectors\nLaunched in January 1993, SPY was the very first exchange traded fund listed in the United States"
 )
 
 Holding.destroy_all
