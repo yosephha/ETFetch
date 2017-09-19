@@ -56,6 +56,16 @@ input#etf-submit {
   box-shadow: 0 17px 31px rgba(72, 68, 68, 0.85);
   background: #eff7f3;
   flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.etf-inner-container{
+  margin: auto;
+  border: 1px solid #d2ecd4;
+  padding: 13px;
+  box-shadow: 0 5px 20px rgba(202, 245, 203, 0.85);
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
 body{

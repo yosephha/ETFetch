@@ -53,6 +53,7 @@ table.gridtable {
   border-collapse: collapse;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin: auto;
 }
 table.gridtable th {
 	border-width: 1px;
@@ -72,8 +73,10 @@ table.gridtable td {
 .hodings-data {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
+  /* margin-top: 29px; */
   flex-wrap: wrap;
+  margin: auto;
+  padding-top: 25px;
 }
 
 .sectors-data {
@@ -84,14 +87,13 @@ table.gridtable td {
 }
 
 .bar-chart {
-  width: 56%;
+  width: 100%;
   overflow: scroll;
+  margin: auto;
 }
 
 .piechart{
-  width: 26%;
-  margin-top: 10%;
-  margin-right: 16%;
+  margin: auto;
 }
 
 span.color {

@@ -21,24 +21,32 @@ const Holdings = ({holding}) => {
     <div className='holdings'>
       <h3>Top Holdings</h3>
       <div className='hodings-data'>
-        <table className='gridtable'>
-          <tbody>
-            <tr>
-              <th>NAME</th>
-              <th>WEIGHT</th>
-              <th>SHARES HELD</th>
-            </tr>
-            {holdings}
-          </tbody>
-        </table>
 
-        <div className='bar-chart'>
-          <BarChart ylabel='percent'
-            width={600}
-            height={400}
-            margin={margin}
-            data={data}/>
+        <div className='etf-inner-container'>
+          <table className='gridtable'>
+            <tbody>
+              <tr>
+                <th>NAME</th>
+                <th>WEIGHT</th>
+                <th>SHARES HELD</th>
+              </tr>
+              {holdings}
+            </tbody>
+          </table>
         </div>
+
+
+        <div className='etf-inner-container'>
+          <div className='bar-chart'>
+            <BarChart ylabel='percent'
+              width={500}
+              height={240}
+              margin={margin}
+              data={data}/>
+          </div>
+        </div>
+
+
       </div>
     </div>
   );

@@ -41,7 +41,9 @@ const Sectors = ({sectors}) => {
     <div className='sectors'>
       <h3>Sectors</h3>
       <div className='sectors-data'>
-        <table className='gridtable'>
+
+        <div className='etf-inner-container'>
+          <table className='gridtable'>
           <tbody>
             <tr>
               <th>NAME</th>
@@ -50,11 +52,15 @@ const Sectors = ({sectors}) => {
             {sectorRows}
           </tbody>
         </table>
-        <div className='piechart'>
+        </div>
+
+        <div className='etf-inner-container'>
+          <div className='piechart'>
           <PieChart
             data={data}
             radius={50}
             />
+        </div>
         </div>
       </div>
 

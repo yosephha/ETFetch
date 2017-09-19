@@ -20,12 +20,18 @@ class EtfDetail extends React.Component {
     const sectors = this.props.etf.sectors;
 
     return(
-      <div className='etf-container'>
-        <h1 className='etf-name'><span>{etf.symbol}:{' '}</span>{etf.name}</h1>
-        <h4 className='etf-description'>{etf.description}</h4>
+      <div>
+        <div className='etf-container'>
+          <h1 className='etf-name'><span>{etf.symbol}:{' '}</span>{etf.name}</h1>
+          <h4 className='etf-description'>{etf.description}</h4>
+        </div>
 
-        <Holdings holding={holdings}/>
-        <Sectors sectors={sectors}/>
+        <div className='etf-container'>
+          <Holdings holding={holdings}/>
+        </div>
+        <div className='etf-container'>
+          <Sectors sectors={sectors}/>
+        </div>
 
       </div>
     );

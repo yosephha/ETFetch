@@ -4,11 +4,14 @@ import { Link, withRouter } from 'react-router-dom';
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", password: "" };
-		this.userDemo = { user: { username: 'user', password: 'password' } };
+		this.state = {
+			username: "",
+			password: "",
+			email: "",
+			name: ""
+		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.demoLogin = this.demoLogin.bind(this);
 	}
 
 	componentDidUpdate() {
@@ -72,21 +75,18 @@ class SessionForm extends React.Component {
 		);
 	}
 
-	demoLogin(e){
-		e.preventDefault();
-		this.props.login(this.userDemo)
-		.then(res => this.props.history.push('/'));
-	}
-
 	render() {
-		let formType, buttonType;
+		let formType, buttonType, style;
 		if (this.props.formType === 'login'){
 			formType = 'Log in';
-			buttonType = 'Log me in!'
+			buttonType = 'Log me in!';
+			style = 'none';
  		} else{
+			style = 'block';
 			formType = 'Sign Up';
 			buttonType = 'Create account';
 		}
+
 
 
 		return (
@@ -100,16 +100,28 @@ class SessionForm extends React.Component {
 						{this.renderErrors()}
 						<div>
 							<br/>
+							<div style={{display: style}}>
+								<input type="text"
+									value={this.state.email}
+									onChange={this.update("email")}
+									placeholder="Email"
+									/>
+								<input type="text"
+									value={this.state.name}
+									onChange={this.update("name")}
+									placeholder="Name"
+									/>
+							</div>
 							<input type="text"
 								value={this.state.username}
 								onChange={this.update("username")}
-								placeholder="Username"
+								placeholder="Username *"
 								/>
 							<br/>
 							<input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
-								placeholder="Password"
+								placeholder="Password *"
 								/>
 							<br/>
 							<div className="loginDiv">
