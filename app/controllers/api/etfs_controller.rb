@@ -32,7 +32,6 @@ class Api::EtfsController < ApplicationController
         )
       end
       @etf = Etf.where(symbol: sym).first
-      # debugger
       render :show
     end
   end
