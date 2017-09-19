@@ -14,6 +14,10 @@ const SECTORS = {
   'Materials': "#E4D882",
   'Telecommunication Services': "#F3ECBE",
   'Unassigned': "#0E0A00",
+  "Financial Services": "#0e59d1",
+  "Technology": "#ceabc1",
+  "Producer Durables": "#f725a9",
+  "Materials & Processing": "#230719"
 };
 
 const Sectors = ({sectors}) => {
