@@ -15,24 +15,15 @@ class Api::EtfsController < ApplicationController
     if @etf
       render :show
     else
-      # scraper = EtfScraper.new
+
       scraped_data = EtfScraper.scrape('http://us.spdrs.com/en', sym)
-      # scraped_data = scraper.scrape('http://us.spdrs.com/en', sym)
 
-      etf = Etf.create(
-        name: scraped_data[:name],
-        description: scraped_data[:description],
-        symbol: sym
-      )
+      debugger
+      etf = create_etf(scraped_data, sym)
+      create_holdings(scraped_data[:holdings], etf.id)
+      create_sectors(scraped_data[:sectors], etf.id)
 
-      scraped_data[:holdings].each do |holding|
-        Holding.create(
-          name: holding[:name],
-          weight: holding[:weight],
-          share_held: holding[:shares],
-          etf_id: etf.id
-        )
-      end
+
       @etf = Etf.where(symbol: sym).first
       render :show
     end
@@ -42,4 +33,34 @@ class Api::EtfsController < ApplicationController
   def user_params
     params.require(:etf).permit(:symbol)
   end
+
+  def create_etf(scraped_data, sym)
+    Etf.create(
+      name: scraped_data[:name],
+      description: scraped_data[:description],
+      symbol: sym
+    )
+  end
+
+  def create_holdings(holdings, id)
+    holdings.each do |holding|
+      Holding.create(
+        name: holding[:name],
+        weight: holding[:weight],
+        share_held: holding[:shares],
+        etf_id: id
+      )
+    end
+  end
+
+  def create_sectors(sectors, id)
+    sectors.each do |sector|
+      Sector.create(
+        name: sector[:name],
+        percent: sector[:percent],
+        etf_id: id
+      )
+    end
+  end
+
 end

@@ -21,8 +21,15 @@ class EtfScraper < ApplicationRecord
 
     click_on('.tabs li:nth-child(3) a')
     holdings = get_holdings
+    sectors = get_sectors(symbol)
 
-    return {name: name, description: key_features, holdings: holdings}
+    debugger
+    return {
+      name: name,
+      description: key_features,
+      holdings: holdings,
+      sectors: sectors
+    }
   end
 
   def self.get_name(symbol)
@@ -58,5 +65,23 @@ class EtfScraper < ApplicationRecord
   def self.click_on(target)
     target_link = @@agent.page.at(target)
     @@agent.click(target_link)
+  end
+
+  def self.get_sectors(sym)
+    debugger
+    sector_url = "https://www.spdrs.com/site-content/data/chart/#{sym}_FUND_SECTOR_ALLOCATION.xml"
+    @@agent.get(sector_url)
+
+    sectors = []
+    labels = @@agent.page.search('label').map(&:text)
+    percents = @@agent.page.search('rawValue').map(&:text).map(&:to_f)
+
+    labels.each_with_index do |label, idx|
+      sector = {}
+      sector[:name] = label
+      sector[:percent] = percents[idx]
+      sectors << sector
+    end
+    sectors
   end
 end
