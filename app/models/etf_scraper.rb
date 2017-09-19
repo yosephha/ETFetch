@@ -2,36 +2,40 @@ require 'open-uri'
 require 'mechanize'
 
 class EtfScraper < ApplicationRecord
+  attr_accessor :agent
 
   def self.scrape(url, symbol)
     puts 'ScrAping...'
-    agent = Mechanize.new
 
-    page = agent.get(url)
-    product_page = agent.page.at('.pull-left .view-all')
-    agent.click(product_page) #now at https://us.spdrs.com/product
+    @@agent = Mechanize.new
+    page = @@agent.get(url)
 
-    uncollapse_global = agent.page.at('.category_toggler:nth-child(3)')
-    agent.click(uncollapse_global)
+    click_on('.pull-left .view-all') #now at https://us.spdrs.com/product
+    click_on('.category_toggler:nth-child(3)')
+    click_on('.category_toggler:nth-child(5)')
 
-    uncollapse_us = agent.page.at('.category_toggler:nth-child(5)')
-    agent.click(uncollapse_us)
+    @@agent.page.link_with(:text => EtfNames.sym_to_name[symbol]).click #now we are on the correct page
 
-    agent.page.link_with(:text => EtfNames.sym_to_name[symbol]).click #now we are on the correct page
+    name = get_name(symbol)
+    key_features = get_description
 
-    name = EtfNames.sym_to_name[symbol]
-    key_features = agent.page.search('.keyfeatures li').map(&:text).join("\n")
+    click_on('.tabs li:nth-child(3) a')
+    holdings = get_holdings
 
-    about_link = agent.page.at('.tabs li:nth-child(3) a')
-    agent.click(about_link)
+    return {name: name, description: key_features, holdings: holdings}
+  end
 
-    # --------------------Holdings------------------------------
+  def self.get_name(symbol)
+    EtfNames.sym_to_name[symbol]
+  end
+
+  def self.get_holdings
     counter = 2
     holdings = []
     10.times do
       row = {}
       str = ".top-holdings:nth-child(1) tr:nth-child(#{counter}) td"
-      agent.page.search(str).each_with_index do |e,i|
+      @@agent.page.search(str).each_with_index do |e,i|
         if i == 0
          row[:name] = e.text
         elsif i==1
@@ -44,18 +48,15 @@ class EtfScraper < ApplicationRecord
       holdings << row
       counter += 1
     end
+    holdings
+  end
 
-    puts '*' * 40
-    puts
-    puts name
-    puts key_features
-    puts
-    holdings.each do |row|
-      puts "#{row[:name]} ----- #{row[:weight]} ----- #{row[:shares]}"
-    end
+  def self.get_description
+    @@agent.page.search('.keyfeatures li').map(&:text).join("\n")
+  end
 
-    puts '*' * 40
-    puts
-    return {name: name, description: key_features, holdings: holdings}
+  def self.click_on(target)
+    target_link = @@agent.page.at(target)
+    @@agent.click(target_link)
   end
 end

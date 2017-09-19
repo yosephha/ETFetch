@@ -15,7 +15,9 @@ class Api::EtfsController < ApplicationController
     if @etf
       render :show
     else
+      # scraper = EtfScraper.new
       scraped_data = EtfScraper.scrape('http://us.spdrs.com/en', sym)
+      # scraped_data = scraper.scrape('http://us.spdrs.com/en', sym)
 
       etf = Etf.create(
         name: scraped_data[:name],
