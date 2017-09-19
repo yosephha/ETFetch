@@ -2,7 +2,8 @@ import merge from 'lodash/merge';
 import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
 
 const defaultState ={
-  errors: []
+  errors: [],
+  etf: {}
 };
 const errorReducer = (state = defaultState, action) => {
   switch (action.type) {

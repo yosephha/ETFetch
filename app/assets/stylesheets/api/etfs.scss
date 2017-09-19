@@ -12,18 +12,19 @@
 }
 
 .header-button {
-    display: inline-block;
-    background: #9cab9c;
-    color: while;
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
+  display: inline-block;
+  background: #9cab9c;
+  color: while;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
 }
 
 .top-header {
   width: 96%;
   text-align: -webkit-right;
   padding: 20px;
+  margin-bottom: 60px;
 }
 
 input#etf-input {
@@ -31,7 +32,7 @@ input#etf-input {
   margin: auto;
   width: 54%;
   padding: 16px;
-  margin-top: 6%;
+  margin-top: 1%;
 }
 
 input#etf-submit {
@@ -59,4 +60,10 @@ input#etf-submit {
 
 body{
   background: red;
+}
+
+.not-found {
+  text-align: -webkit-center;
+  color: red;
+  font-family: sans-serif;
 }
