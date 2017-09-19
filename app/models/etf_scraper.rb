@@ -23,7 +23,6 @@ class EtfScraper < ApplicationRecord
     holdings = get_holdings
     sectors = get_sectors(symbol)
 
-    debugger
     return {
       name: name,
       description: key_features,
@@ -68,7 +67,6 @@ class EtfScraper < ApplicationRecord
   end
 
   def self.get_sectors(sym)
-    debugger
     sector_url = "https://www.spdrs.com/site-content/data/chart/#{sym}_FUND_SECTOR_ALLOCATION.xml"
     @@agent.get(sector_url)
 

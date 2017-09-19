@@ -29,7 +29,6 @@ class Home extends React.Component {
     let symbol = this.state.searchRes.toUpperCase();
 
     if(APIUtil.EtfName[symbol] === undefined){
-      debugger
       this.props.clearErrors();
       this.setState({
         'error': 'Invalid Symbol'

@@ -18,7 +18,6 @@ class Api::EtfsController < ApplicationController
 
       scraped_data = EtfScraper.scrape('http://us.spdrs.com/en', sym)
 
-      debugger
       etf = create_etf(scraped_data, sym)
       create_holdings(scraped_data[:holdings], etf.id)
       create_sectors(scraped_data[:sectors], etf.id)
