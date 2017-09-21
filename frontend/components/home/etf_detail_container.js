@@ -6,7 +6,6 @@ import { fetchHistories } from '../../actions/history_action';
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
-  debugger
   return ({
     currentUser: state.session.currentUser,
     sym: id,

@@ -15,7 +15,6 @@ class EtfDetail extends React.Component {
   }
 
   render(){
-    debugger
     if(!this.props.etf.id) return null;
 
     const etf = this.props.etf;
