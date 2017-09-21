@@ -60,5 +60,6 @@ export const EtfName = {
   "XSW": "SPDR® S&P® Software & Services ETF",
   "XTH": "SPDR® S&P® Technology Hardware ETF",
   "XTL": "SPDR® S&P® Telecom ETF",
-  "XTN": "SPDR® S&P® Transportation ETF"
+  "XTN": "SPDR® S&P® Transportation ETF",
+  "abcd": "buys"
 }

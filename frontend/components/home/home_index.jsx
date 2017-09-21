@@ -1,7 +1,8 @@
 import React from 'react';
 import Greeting from '../greeting/greeting_container';
 import EtfDetail from './etf_detail_container';
-import * as APIUtil from '../../util/etf_names';
+import UserHistory from './history';
+// import * as APIUtil from '../../util/etf_names';
 
 
 class Home extends React.Component {
@@ -17,6 +18,10 @@ class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    this.props.fetchHistories(this.props.currentUser.id);
+  }
+
   update() {
     return e => this.setState({
       'searchRes': e.currentTarget.value,
@@ -27,18 +32,17 @@ class Home extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let symbol = this.state.searchRes.toUpperCase();
+    const that = this;
 
-    if(APIUtil.EtfName[symbol] === undefined){
-      this.props.clearErrors();
-      this.setState({
-        'error': 'Invalid Symbol'
-      })
-    } else {
-      this.props.fetchEtf(symbol)
-      .then((resp) =>  {
+    this.props.fetchHistories(this.props.currentUser.id)
+    .then(() => this.props.fetchEtf(symbol))
+    .then((resp) =>  {
+      if(resp.etf.symbol === undefined){
+        that.setState({'error': "Invalid Symbol"})
+      } else{
         return (this.props.history.push(`/etf/${symbol}`))
-      });
-    }
+      }
+    })
   }
 
   render(){
@@ -61,6 +65,8 @@ class Home extends React.Component {
           </div>
           </div>
         </form>
+
+        <UserHistory histories={this.props.histories}/>
       </div>
     );
   }

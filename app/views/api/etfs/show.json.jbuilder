@@ -15,3 +15,8 @@ json.sectors etf.sectors do |sector|
   json.name sector.name
   json.percent sector.percent.to_f
 end
+
+json.country_weights etf.country_weights do |weight|
+  json.country weight.country
+  json.percent weight.percent
+end

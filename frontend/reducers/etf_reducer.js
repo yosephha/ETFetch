@@ -8,7 +8,7 @@ const EtfReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case RECIVE_ETF:
-      const newEtf = merge({}, state, action.etf)
+      const newEtf = merge({}, action.etf)
       return newEtf;
     default:
       return state;

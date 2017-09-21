@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import {fetchEtfs, fetchEtf } from './util/etf_util'
+import {fetchHistories} from './util/history_util'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -19,4 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchEtfs = fetchEtfs;
   window.fetchEtf = fetchEtf;
+  window.fetchHistories = fetchHistories;
 });

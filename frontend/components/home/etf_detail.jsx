@@ -2,6 +2,7 @@ import React from 'react';
 import BarChart from 'react-bar-chart';
 import Holdings from './holdings';
 import Sectors from './sectors';
+import CountryWeights from './country_weights';
 
 class EtfDetail extends React.Component {
   constructor(props){
@@ -10,14 +11,24 @@ class EtfDetail extends React.Component {
 
   componentDidMount(){
     this.props.fetchEtf(this.props.sym);
+    this.props.fetchHistories(this.props.currentUser.id);
   }
 
   render(){
+    debugger
     if(!this.props.etf.id) return null;
 
     const etf = this.props.etf;
     const holdings = this.props.etf.holdings;
     const sectors = this.props.etf.sectors;
+    const countryWeights = this.props.etf.country_weights;
+    let style;
+
+    if(countryWeights.length <= 0){
+      style = 'none';
+    } else {
+      style = 'block';
+    }
 
     return(
       <div>
@@ -31,6 +42,10 @@ class EtfDetail extends React.Component {
         </div>
         <div className='etf-container'>
           <Sectors sectors={sectors}/>
+        </div>
+
+        <div className='etf-container' style={{display: style}}>
+          <CountryWeights cw={countryWeights}/>
         </div>
 
       </div>

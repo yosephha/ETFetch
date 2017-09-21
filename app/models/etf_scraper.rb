@@ -14,20 +14,27 @@ class EtfScraper < ApplicationRecord
     click_on('.category_toggler:nth-child(3)')
     click_on('.category_toggler:nth-child(5)')
 
-    @@agent.page.link_with(:text => EtfNames.sym_to_name[symbol]).click #now we are on the correct page
+    page_link = @@agent.page.link_with(:text => EtfNames.sym_to_name[symbol]) #now we are on the correct page
+
+    return nil if page_link.nil?
+
+    page_link.click
 
     name = get_name(symbol)
     key_features = get_description
 
     click_on('.tabs li:nth-child(3) a')
     holdings = get_holdings
+    country_weights = get_country_weights
     sectors = get_sectors(symbol)
+
 
     return {
       name: name,
       description: key_features,
       holdings: holdings,
-      sectors: sectors
+      sectors: sectors,
+      country_weights: country_weights
     }
   end
 
@@ -81,5 +88,30 @@ class EtfScraper < ApplicationRecord
       sectors << sector
     end
     sectors
+  end
+
+  def self.get_country_weights
+    c_and_w = @@agent.page.search(".row+ .row .as-of+ table td").map(&:text)
+    return [] if c_and_w.length == 0
+
+    countries=[]
+    weights=[]
+    country_weights = []
+
+    c_and_w.each_with_index do |el, idx|
+      if idx.even?
+        countries.push(el)
+      else
+        weights.push(el.to_f)
+      end
+    end
+
+    countries.each_with_index do |country, idx|
+      temp = {}
+      temp[:country] = country
+      temp[:percent] = weights[idx]
+      country_weights << temp
+    end
+    country_weights
   end
 end

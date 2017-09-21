@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+user = User.create(
+  username: "user",
+  password: "password"
+)
+
 Etf.destroy_all
 etf1 = Etf.create(
   name: "SPDR® S&P 500® ETF",
@@ -135,5 +141,11 @@ sector11 = Sector.create(
 sector12 = Sector.create(
   name: "Unassigned",
   percent: 0.09,
+  etf_id: etf1.id
+)
+
+History.destroy_all
+History.create(
+  user_id: user.id,
   etf_id: etf1.id
 )
