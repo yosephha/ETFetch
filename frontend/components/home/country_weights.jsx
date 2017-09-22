@@ -1,5 +1,6 @@
 import React from 'react';
 import PieChart from "react-svg-piechart";
+import { connect } from 'react-redux';
 
 class CountryWeights extends React.Component {
   constructor(props){
@@ -17,7 +18,7 @@ class CountryWeights extends React.Component {
   }
 
   render(){
-    const cw = this.cw;
+    const cw = this.props.country_weights;
     const data = [];
     const {expandedSector} = this.state
 
@@ -78,4 +79,11 @@ class CountryWeights extends React.Component {
   }
 }
 
-export default CountryWeights
+const mapStateToProps = (state) => ({
+    country_weights: state.etf.country_weights
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(CountryWeights);

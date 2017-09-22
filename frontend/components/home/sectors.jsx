@@ -1,6 +1,6 @@
 import React from 'react';
 import PieChart from "react-svg-piechart";
-
+import { connect } from 'react-redux';
 const SECTORS = {
   // 'Information Technology': "#B386CC",
   // 'Health Care': "#6A4BF3",
@@ -119,7 +119,7 @@ class Sectors extends React.Component {
   }
 
   render(){
-    const sectors = this.sectors;
+    const sectors = this.props.sectors;
     let data = [];
     const {expandedSector} = this.state
     const sectorRows = sectors.map((el,i) =>{
@@ -185,4 +185,12 @@ class Sectors extends React.Component {
   }
 };
 
-export default Sectors
+
+const mapStateToProps = (state) => ({
+    sectors: state.etf.sectors
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Sectors);

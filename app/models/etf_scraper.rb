@@ -75,17 +75,22 @@ class EtfScraper < ApplicationRecord
 
   def self.get_sectors(sym)
     sector_url = "https://www.spdrs.com/site-content/data/chart/#{sym}_FUND_SECTOR_ALLOCATION.xml"
-    @@agent.get(sector_url)
-
     sectors = []
-    labels = @@agent.page.search('label').map(&:text)
-    percents = @@agent.page.search('rawValue').map(&:text).map(&:to_f)
 
-    labels.each_with_index do |label, idx|
-      sector = {}
-      sector[:name] = label
-      sector[:percent] = percents[idx]
-      sectors << sector
+    begin
+      @@agent.get(sector_url)
+
+      labels = @@agent.page.search('label').map(&:text)
+      percents = @@agent.page.search('rawValue').map(&:text).map(&:to_f)
+
+      labels.each_with_index do |label, idx|
+        sector = {}
+        sector[:name] = label
+        sector[:percent] = percents[idx]
+        sectors << sector
+      end
+    rescue
+      puts "page not found..."
     end
     sectors
   end
