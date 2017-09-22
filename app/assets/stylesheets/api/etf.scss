@@ -43,37 +43,39 @@ h4.etf-description {
   padding: 50px 0 40px 0;
 }
 
-
 table.gridtable {
   font-family: verdana,arial,sans-serif;
   font-size: 14px;
   color: #333333;
   border-width: 1px;
   border-color: #666666;
-  border-collapse: collapse;
   margin-top: 20px;
   margin-bottom: 20px;
   margin: auto;
 }
+
 table.gridtable th {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #666666;
-	background-color: #dedede;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #666666;
+  background-color: #d5e2d8;
+  border-radius: 6px;
 }
+
 table.gridtable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #666666;
-	background-color: #ffffff;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #af9a9a;
+  background-color: #7cb378;
+  color: white;
+  border-radius: 9px;
 }
 
 .hodings-data {
   display: flex;
   justify-content: space-between;
-  /* margin-top: 29px; */
   flex-wrap: wrap;
   margin: auto;
   padding-top: 25px;
@@ -100,4 +102,109 @@ span.color {
   padding: 6px;
   border-radius: 13%;
   margin-right: 11px;
+}
+
+.etf-hist{
+  display: flex
+}
+
+.hist-spot {
+  // width: 100%;
+}
+
+li.history-box {
+  border: 1px solid gray;
+  border-radius: 3px;
+  margin: 9px 5px;
+  background: #e5ece5;
+  padding: 6px;
+}
+
+.hist-list {
+    width: 93%;
+    height: 73vh;
+    overflow: scroll;
+}
+
+.not-found {
+  text-align: -webkit-center;
+  color: red;
+  font-family: sans-serif;
+}
+
+.form-hist {
+  display: flex;
+}
+
+.form-cont {
+  margin-top: 12%;
+  width: 80%;
+}
+
+ul.history {
+  text-align: -webkit-center;
+  list-style: none;
+  width: 20%;
+  position: fixed;
+  top: 3em;
+  right: 1em;
+}
+
+.body-cont{
+  width: 97%;
+  margin: auto;
+}
+
+.logo{
+  font-family: cursive;
+  font-size: 33px;
+  margin-left: 20px;
+}
+
+.history > p {
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 31px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+.etf-spot {
+  width: 80%
+}
+
+.hist-sym {
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.hist-name {
+    font-size: 11px;
+    color: gray;
+}
+
+li.history-box:hover {
+    background: #d8ffc6;
+    color: black;
+    cursor: pointer;
+}
+
+span.color {
+  border: 1px solid;
+}
+
+.tal{
+  text-align: right;
+}
+
+span.pie-chart {
+    padding: 10%;
+    text-align: center;
+}
+
+.pie-chart-desc-item {
+  overflow-x: scroll;
+  white-space: nowrap;
+  color: #9e8989;
+  padding: 0 20px;
 }

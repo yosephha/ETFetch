@@ -2,15 +2,22 @@ import React from 'react';
 import BarChart from 'react-bar-chart';
 
 const Holdings = ({holding}) => {
-
   const data = [];
+  const numberWithCommas = (x) => {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+  }
+
   const holdings = holding.map((el,i) => {
     data.push({text: el.name.slice(0,5), value: el.weight})
     return(
      <tr key={i}>
        <td>{el.name}</td>
-       <td>{el.weight}%</td>
-       <td>{el.share_held}</td>
+       <td className="tal">{el.weight}%</td>
+       <td className="tal">{numberWithCommas(el.share_held)}</td>
      </tr>
     );
   });
@@ -35,7 +42,6 @@ const Holdings = ({holding}) => {
           </table>
         </div>
 
-
         <div className='etf-inner-container'>
           <div className='bar-chart'>
             <BarChart ylabel='percent'
@@ -45,7 +51,6 @@ const Holdings = ({holding}) => {
               data={data}/>
           </div>
         </div>
-
 
       </div>
     </div>

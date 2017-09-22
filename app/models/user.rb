@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def etfs_visited
-    Etf.where(id: etfs_visited_by_id)
+    Etf.where(id: etfs_visited_by_id).sort_by(&:updated_at).reverse
   end
 
 

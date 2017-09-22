@@ -10,10 +10,15 @@ const sessionLinks = (clearErrors) => (
 
 const personalGreeting = (currentUser, logout) => (
 <div className='top-header'>
-  <p className='user-info'>
-    You're logged in as <span>{' ' + currentUser.username}</span>
+  <div className="logo">
+      <span>ETFetch</span>
+  </div>
+  <div>
+    <p className='user-info'>
+      You're logged in as <span>{' ' + currentUser.username}</span>
   </p>
   <button className="header-button" onClick={logout}>Log Out</button>
+  </div>
 </div>
 );
 

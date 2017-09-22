@@ -8,7 +8,7 @@ const HistoryReducer = (state = defaultState, action) => {
 
   switch (action.type) {
     case RECIVE_HISTORIES:
-      const newHistory = merge({}, state, action.histories)
+      const newHistory = merge({}, action.histories)
       return newHistory;
     default:
       return state;

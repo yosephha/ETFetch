@@ -14,6 +14,12 @@ class EtfDetail extends React.Component {
     this.props.fetchHistories(this.props.currentUser.id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.fetchEtf(nextProps.match.params.id);
+    }
+  }
+
   render(){
     if(!this.props.etf.id) return null;
 
@@ -30,21 +36,23 @@ class EtfDetail extends React.Component {
     }
 
     return(
-      <div>
-        <div className='etf-container'>
-          <h1 className='etf-name'><span>{etf.symbol}:{' '}</span>{etf.name}</h1>
-          <h4 className='etf-description'>{etf.description}</h4>
-        </div>
+      <div className='etf-hist'>
+        <div className='etf-spot'>
+          <div className='etf-container'>
+            <h1 className='etf-name'><span>{etf.symbol}:{' '}</span>{etf.name}</h1>
+            <h4 className='etf-description'>{etf.description}</h4>
+          </div>
 
-        <div className='etf-container'>
-          <Holdings holding={holdings}/>
-        </div>
-        <div className='etf-container'>
-          <Sectors sectors={sectors}/>
-        </div>
+          <div className='etf-container'>
+            <Holdings holding={holdings}/>
+          </div>
+          <div className='etf-container'>
+            <Sectors sectors={sectors}/>
+          </div>
 
-        <div className='etf-container' style={{display: style}}>
-          <CountryWeights cw={countryWeights}/>
+          <div className='etf-container' style={{display: style}}>
+            <CountryWeights cw={countryWeights}/>
+          </div>
         </div>
 
       </div>

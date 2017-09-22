@@ -5,7 +5,7 @@
 }
 
 .user-info > span {
-  color: #545454;
+  color: #cccbcb;
   font-weight: 800;
   font-size: 27px;
   font-family: cursive;
@@ -21,10 +21,14 @@
 }
 
 .top-header {
-  width: 96%;
-  text-align: -webkit-right;
-  padding: 20px;
-  margin-bottom: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  position: fixed;
+  background: #213e1a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 input#etf-input {
@@ -66,14 +70,9 @@ input#etf-submit {
   box-shadow: 0 5px 20px rgba(202, 245, 203, 0.85);
   flex-wrap: wrap;
   margin-top: 50px;
+  box-sizing: border-box;
 }
 
 body{
   background: red;
-}
-
-.not-found {
-  text-align: -webkit-center;
-  color: red;
-  font-family: sans-serif;
 }

@@ -50,23 +50,30 @@ class Home extends React.Component {
       <div>
         <Greeting />
 
-        <form onSubmit={this.handleSubmit} >
-          <div>
-            <div className='not-found'>{this.state.error}</div>
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update()}
-              placeholder="Enter ETF Symbol"
-              autoFocus={true}
-              id='etf-input'
-            />
-          <div className='submit-container'>
-            <input id="etf-submit" type='submit' value='Search for ETF'/>
-          </div>
-          </div>
-        </form>
+        <div className="body-cont">
+          <div className="form-hist">
+            <div className='form-cont'>
+              <form onSubmit={this.handleSubmit} >
+                <div>
+                  <div className='not-found'>{this.state.error}</div>
+                  <input type="text"
+                    value={this.state.username}
+                    onChange={this.update()}
+                    placeholder="Enter ETF Symbol"
+                    autoFocus={true}
+                    id='etf-input'
+                    />
+                  <div className='submit-container'>
+                    <input id="etf-submit" type='submit' value='Search for ETF'/>
+                  </div>
+                </div>
+              </form>
+            </div>
 
-        <UserHistory histories={this.props.histories}/>
+            <UserHistory histories={this.props.histories}/>
+          </div>
+        </div>
+
       </div>
     );
   }
