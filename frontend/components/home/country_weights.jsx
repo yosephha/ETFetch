@@ -29,7 +29,7 @@ class CountryWeights extends React.Component {
       });
 
       return(
-        <tr key={i} style={{fontWeight: this.state.expandedSector === i ? "bold" : null}}>
+        <tr key={i} style={{color: this.state.expandedSector === i ? "red" : "white"}}>
           <td>{' ' + el.country}</td>
           <td>{el.percent}%</td>
         </tr>
