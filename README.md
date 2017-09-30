@@ -1,25 +1,16 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # ETFetch
+
+
+[Demo](https://etfetch.herokuapp.com/)
+
+## features:
+-	User stays logged in unless logged out or cookies are cleared 
+-	main page is protected. meaning if not logged in direct url access redirects to login  
+-	Symbol search handles lowercase and uppercase letters 
+-	checks if symbol is stored in the database before scraping
+-	checks for valid symbols
+
+## Technologies
+```PostgreSQ``` and ```Ruby on Rails```, ```Mechanize```, ```React/Redux```,  ```React.js``` and ```D3.js```
+
+
