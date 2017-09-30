@@ -11,6 +11,6 @@
 -	checks for valid symbols
 
 ## Technologies
-```PostgreSQL``` and ```Ruby on Rails```, ```Mechanize```, ```React/Redux```,  ```React.js``` and ```D3.js```
+```PostgreSQL``` and ```Ruby on Rails```, ```Mechanize```, ```React/Redux```, and ```D3.js```
 
 
