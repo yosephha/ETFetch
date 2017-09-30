@@ -3,7 +3,7 @@
 
 [Demo](https://etfetch.herokuapp.com/)
 
-## features:
+## Features:
 -	User stays logged in unless logged out or cookies are cleared 
 -	main page is protected. meaning if not logged in direct url access redirects to login  
 -	Symbol search handles lowercase and uppercase letters 
